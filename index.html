@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Logístico Interativo</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div>
+      <span class="tag">AMT01 · Dashboard Logístico</span>
+      <h1>Monitoramento de Entregas</h1>
+      <p>
+        Painel interativo para identificar atrasos, comparar transportadoras,
+        analisar regiões críticas e priorizar problemas operacionais.
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="filters">
+      <div class="filter">
+        <label for="filtroRegiao">Região</label>
+        <select id="filtroRegiao">
+          <option value="Todas">Todas</option>
+        </select>
+      </div>
+
+      <div class="filter">
+        <label for="filtroTransportadora">Transportadora</label>
+        <select id="filtroTransportadora">
+          <option value="Todas">Todas</option>
+        </select>
+      </div>
+
+      <div class="filter">
+        <label for="busca">Busca rápida</label>
+        <input type="text" id="busca" placeholder="Cidade, região, transportadora ou ID" />
+      </div>
+    </section>
+
+    <section class="cards">
+      <button class="card" data-insight="total">
+        <span>Total de entregas</span>
+        <strong id="totalEntregas">0</strong>
+        <small>Clique para interpretar</small>
+      </button>
+
+      <button class="card danger" data-insight="atrasadas">
+        <span>Entregas atrasadas</span>
+        <strong id="totalAtrasadas">0</strong>
+        <small>Clique para interpretar</small>
+      </button>
+
+      <button class="card warning" data-insight="taxa">
+        <span>Taxa de atraso</span>
+        <strong id="taxaAtraso">0%</strong>
+        <small>Clique para interpretar</small>
+      </button>
+
+      <button class="card critical" data-insight="maior">
+        <span>Maior atraso</span>
+        <strong id="maiorAtraso">0 dias</strong>
+        <small>Clique para interpretar</small>
+      </button>
+    </section>
+
+    <section class="insight-box">
+      <h2>Insight automático</h2>
+      <p id="insightAutomatico">
+        Use os filtros ou passe o mouse sobre os gráficos para explorar os dados.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <div class="panel-title">
+          <h2>Atrasos por transportadora</h2>
+          <button class="mini-btn" data-insight="transportadora">Ver insight</button>
+        </div>
+        <canvas id="graficoTransportadora"></canvas>
+      </article>
+
+      <article class="panel">
+        <div class="panel-title">
+          <h2>Atrasos por região</h2>
+          <button class="mini-btn" data-insight="regiao">Ver insight</button>
+        </div>
+        <canvas id="graficoRegiao"></canvas>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <div class="panel-title">
+          <h2>Status das entregas</h2>
+          <button class="mini-btn" data-insight="status">Ver insight</button>
+        </div>
+        <canvas id="graficoStatus"></canvas>
+      </article>
+
+      <article class="panel">
+        <div class="panel-title">
+          <h2>Ranking das entregas críticas</h2>
+          <button class="mini-btn" data-insight="ranking">Ver insight</button>
+        </div>
+        <canvas id="graficoRanking"></canvas>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">
+        <h2>Tabela operacional</h2>
+        <button class="mini-btn" data-insight="tabela">Ver insight</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Cidade</th>
+              <th>Região</th>
+              <th>Transportadora</th>
+              <th>Prazo</th>
+              <th>Dias reais</th>
+              <th>Atraso</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaEntregas"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="answer-box">
+      <h2>Resposta da lógica usada</h2>
+
+      <h3>I. Como os atrasos foram identificados?</h3>
+      <p>
+        Os atrasos foram identificados comparando o prazo previsto com os dias reais.
+        Quando <strong>dias reais &gt; prazo</strong>, a entrega foi considerada atrasada.
+      </p>
+
+      <h3>II. Como os cálculos foram realizados?</h3>
+      <p>
+        Foi calculada a diferença entre os dias reais e o prazo:
+        <strong>atraso = dias reais - prazo</strong>. Depois os dados foram agrupados
+        por transportadora e por região para gerar os gráficos.
+      </p>
+
+      <h3>III. Quais critérios foram usados para organizar e priorizar?</h3>
+      <p>
+        A priorização foi feita pelo maior número de dias de atraso. Assim, as entregas
+        mais críticas aparecem primeiro no ranking e recebem destaque visual no painel.
+      </p>
+    </section>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="close" id="fecharModal">&times;</button>
+      <h2 id="modalTitulo">Insight</h2>
+      <p id="modalTexto">Texto do insight.</p>
+    </div>
+  </div>
+
+  <footer>
+    Dashboard educacional · HTML + CSS + JavaScript + Chart.js · Estudantes JOMAP - Desafio dos Dados
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
