@@ -144,10 +144,9 @@ Todo o projeto foi pensado para facilitar a interpretação rápida dos dados po
 **Acesso ao dashboard:**
 
 ```
-Inserir aqui o link publicado no GitHub Pages ou plataforma utilizada.
+https://dataai-3f.github.io/dashboard-elaborado/
 ```
-
----
+ 
 
 # 📚 Observação
 
