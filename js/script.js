@@ -41,6 +41,13 @@ function atraso(entrega) {
 }
 
 /**
+ * Formata corretamente a palavra "dia" no singular ou plural.
+ */
+function textoDias(valor) {
+  return valor === 1 ? "1 dia" : `${valor} dias`;
+}
+
+/**
  * Classifica a entrega de acordo com a quantidade de dias de atraso.
  */
 function statusEntrega(entrega) {
@@ -123,7 +130,7 @@ function atualizarCards(dados) {
   document.getElementById("totalEntregas").textContent = total;
   document.getElementById("totalAtrasadas").textContent = atrasadas;
   document.getElementById("taxaAtraso").textContent = taxa + "%";
-  document.getElementById("maiorAtraso").textContent = maior + " dias";
+  document.getElementById("maiorAtraso").textContent = textoDias(maior);
 }
 
 /**
@@ -146,7 +153,7 @@ function atualizarInsightAutomatico(dados) {
   document.getElementById("insightAutomatico").textContent =
     `Foram analisadas ${dados.length} entregas. ${atrasadas.length} estão atrasadas, ` +
     `gerando uma taxa de atraso de ${taxa}%. A entrega mais crítica é ${maisCritica.id}, ` +
-    `em ${maisCritica.cidade}, com ${atraso(maisCritica)} dias de atraso. ` +
+    `em ${maisCritica.cidade}, com ${textoDias(atraso(maisCritica))} de atraso. ` +
     `A região com maior soma de atraso é ${regiaoCritica[0]}.`;
 }
 
@@ -175,9 +182,9 @@ function atualizarTabela(dados) {
       <td>${e.cidade}</td>
       <td>${e.regiao}</td>
       <td>${e.transportadora}</td>
-      <td>${e.prazo} dias</td>
-      <td>${e.diasReais} dias</td>
-      <td>${dias} dias</td>
+      <td>${textoDias(e.prazo)}</td>
+      <td>${textoDias(e.diasReais)}</td>
+      <td>${textoDias(dias)}</td>
       <td><span class="badge ${classe}">${status}</span></td>
     `;
 
@@ -185,8 +192,8 @@ function atualizarTabela(dados) {
       abrirModal(
         `Entrega ${e.id}`,
         `A entrega para ${e.cidade}, na região ${e.regiao}, foi realizada pela transportadora ${e.transportadora}. ` +
-        `O prazo previsto era de ${e.prazo} dias e o tempo real foi de ${e.diasReais} dias. ` +
-        `O atraso calculado foi de ${dias} dias. Status: ${status}.`
+        `O prazo previsto era de ${textoDias(e.prazo)} e o tempo real foi de ${textoDias(e.diasReais)}. ` +
+        `O atraso calculado foi de ${textoDias(dias)}. Status: ${status}.`
       );
     });
 
@@ -258,7 +265,7 @@ function criarGraficoBarra(elemento, labels, valores, titulo, horizontal = false
 
         abrirModal(
           labels[index],
-          `Este item soma ${valores[index]} dias de atraso no conjunto filtrado. ` +
+          `Este item soma ${textoDias(valores[index])} de atraso no conjunto filtrado. ` +
           `Quanto maior esse valor, maior a prioridade operacional para investigação.`
         );
       }
@@ -390,19 +397,19 @@ function gerarTextoInsight(tipo) {
     maior: [
       "Maior atraso",
       maior
-        ? `A entrega mais crítica é ${maior.id}, em ${maior.cidade}, com ${atraso(maior)} dias de atraso.`
+        ? `A entrega mais crítica é ${maior.id}, em ${maior.cidade}, com ${textoDias(atraso(maior))} de atraso.`
         : "Não há entrega crítica no filtro atual."
     ],
     transportadora: [
       "Comparação entre transportadoras",
       transportadoraCritica
-        ? `A transportadora com maior soma de atrasos é ${transportadoraCritica[0]}, com ${transportadoraCritica[1]} dias acumulados.`
+        ? `A transportadora com maior soma de atrasos é ${transportadoraCritica[0]}, com ${textoDias(transportadoraCritica[1])} acumulados.`
         : "Não há atrasos por transportadora no filtro atual."
     ],
     regiao: [
       "Análise por região",
       regiaoCritica
-        ? `A região mais crítica é ${regiaoCritica[0]}, somando ${regiaoCritica[1]} dias de atraso.`
+        ? `A região mais crítica é ${regiaoCritica[0]}, somando ${textoDias(regiaoCritica[1])} de atraso.`
         : "Não há atrasos por região no filtro atual."
     ],
     status: [
