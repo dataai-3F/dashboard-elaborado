@@ -12,13 +12,16 @@ Este projeto foi desenvolvido com o objetivo de demonstrar a construção de um 
 *DataAI-3F*
 
 **Integrantes:**
-
 * Ana Carolina
 * Geovanna Lopes
 * Maria CLara
 * Julio Cesar
 
 ---
+## 📸 Print do Dashboard
+
+![Dashboard do SQUAD](./imagem/dashboard.png)
+
 
 # 🎯 Objetivo
 
@@ -143,9 +146,7 @@ Todo o projeto foi pensado para facilitar a interpretação rápida dos dados po
 
 **Acesso ao dashboard:**
 
-```
 https://dataai-3f.github.io/dashboard-elaborado/
-```
  
 
 # 📚 Observação
