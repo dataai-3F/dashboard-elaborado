@@ -18,11 +18,12 @@ Este projeto foi desenvolvido com o objetivo de demonstrar a construção de um 
 * Julio Cesar
 
 ---
-## 📸 Print do Dashboard
+## 📸 Prévia do Dashboard para as próximas atualizações
 
 ![Dashboard do SQUAD](./images/dashboard.png)
 
-
+**Acesso ao dashboard real do projeto:**
+https://dataai-3f.github.io/dashboard-elaborado/
 # 🎯 Objetivo
 
 Desenvolver uma solução capaz de transformar uma base de dados simplificada de entregas em um painel visual que facilite a análise operacional da empresa.
@@ -142,7 +143,7 @@ Todo o projeto foi pensado para facilitar a interpretação rápida dos dados po
 
 ---
 
-# 🔗 Link do Dashboard
+# 🔗 Link de acesso
 
 **Acesso ao dashboard:**
 
