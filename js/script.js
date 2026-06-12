@@ -1,14 +1,14 @@
 const entregas = [
-  { id: "E001", cidade: "São Paulo", regiao: "Sudeste", transportadora: "Rápido Sul", prazo: 3, diasReais: 4 },
-  { id: "E002", cidade: "Rio de Janeiro", regiao: "Sudeste", transportadora: "LogMax", prazo: 4, diasReais: 4 },
-  { id: "E003", cidade: "Recife", regiao: "Nordeste", transportadora: "Nordeste Express", prazo: 5, diasReais: 8 },
-  { id: "E004", cidade: "Manaus", regiao: "Norte", transportadora: "Amazon Cargo", prazo: 7, diasReais: 10 },
-  { id: "E005", cidade: "Curitiba", regiao: "Sul", transportadora: "Rápido Sul", prazo: 3, diasReais: 3 },
-  { id: "E006", cidade: "Goiânia", regiao: "Centro-Oeste", transportadora: "Brasil Fretes", prazo: 5, diasReais: 7 },
-  { id: "E007", cidade: "Salvador", regiao: "Nordeste", transportadora: "Nordeste Express", prazo: 5, diasReais: 6 },
-  { id: "E008", cidade: "Belém", regiao: "Norte", transportadora: "Amazon Cargo", prazo: 8, diasReais: 12 },
-  { id: "E009", cidade: "Porto Alegre", regiao: "Sul", transportadora: "Rápido Sul", prazo: 4, diasReais: 5 },
-  { id: "E010", cidade: "Brasília", regiao: "Centro-Oeste", transportadora: "Brasil Fretes", prazo: 4, diasReais: 4 }
+  { id: "301", cidade: "São Paulo", regiao: "Sudeste", transportadora: "RotaMax", prazo: 3, diasReais: 7 },
+  { id: "302", cidade: "Curitiba", regiao: "Sul", transportadora: "ViaCargo", prazo: 5, diasReais: 5 },
+  { id: "303", cidade: "Recife", regiao: "Nordeste", transportadora: "FlashLog", prazo: 4, diasReais: 9 },
+  { id: "304", cidade: "Manaus", regiao: "Norte", transportadora: "RotaMax", prazo: 6, diasReais: 4 },
+  { id: "305", cidade: "Goiânia", regiao: "Centro-Oeste", transportadora: "ViaCargo", prazo: 2, diasReais: 6 },
+  { id: "306", cidade: "Porto Alegre", regiao: "Sul", transportadora: "FlashLog", prazo: 5, diasReais: 12 },
+  { id: "307", cidade: "Florianópolis", regiao: "Sul", transportadora: "RotaMax", prazo: 6, diasReais: 9 },
+  { id: "308", cidade: "Rio de Janeiro", regiao: "Sudeste", transportadora: "ViaCargo", prazo: 3, diasReais: 4 },
+  { id: "309", cidade: "Belém", regiao: "Norte", transportadora: "FlashLog", prazo: 5, diasReais: 5 },
+  { id: "310", cidade: "Salvador", regiao: "Nordeste", transportadora: "ViaCargo", prazo: 4, diasReais: 8 }
 ];
 
 let graficoTransportadora;
