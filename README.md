@@ -14,7 +14,6 @@ Este projeto foi desenvolvido com o objetivo de demonstrar a construção de um 
 **Integrantes:**
 * Ana Carolina
 * Geovanna Lopes
-* Maria CLara
 * Julio Cesar
 
 ---
