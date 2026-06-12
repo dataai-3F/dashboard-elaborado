@@ -20,7 +20,7 @@ Este projeto foi desenvolvido com o objetivo de demonstrar a construção de um 
 ---
 ## 📸 Print do Dashboard
 
-![Dashboard do SQUAD](./imagem/dashboard.png)
+![Dashboard do SQUAD](./images/dashboard.png)
 
 
 # 🎯 Objetivo
